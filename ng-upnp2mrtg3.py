@@ -87,7 +87,7 @@ def get_response_code(msg):
     if msg is None:
         return None
 
-    match = re.match('^HTTP/1\.[0|1]\s+(\d+)',msg)
+    match = re.match('^HTTP/1\\.[0|1]\\s+(\\d+)',msg)
     if match is None:
         return None
     return int(match.group(1))
@@ -361,7 +361,7 @@ class Nowrap_handler:
             if len(lines) != 2:
                 raise ValueError("format mismatch")
 
-            comp = re.compile("^(\d+)\t(\d+)\n$")
+            comp = re.compile("^(\\d+)\t(\\d+)\\n$")
             m1 = comp.match(lines[0])
             m2 = comp.match(lines[1])
             if (m1 is None) or (m2 is None):
